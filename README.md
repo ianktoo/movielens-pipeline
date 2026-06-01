@@ -21,14 +21,14 @@ The work is split into two parts:
 uv sync --all-extras                       # create the env + install everything
 ```
 
-Get the data (one of two ways):
+Get the data — **one command** downloads (~240 MB), unzips, and builds the samples:
 
 ```bash
-# 1) Download the real dataset (~240 MB) into data/raw/ and unzip it, OR
-#    skip this and the pipeline will fall back to synthetic data automatically.
-# 2) Build the swappable sample sets used by the notebook:
-uv run python scripts/prepare_samples.py
+uv run python scripts/download_data.py
 ```
+
+> Don't want the real data? Skip the command — the pipeline falls back to
+> realistic **synthetic** data automatically, so the notebook still runs.
 
 Run the notebook:
 
@@ -42,7 +42,7 @@ uv run jupyter lab notebooks/movielens_pipeline.ipynb
 python -m venv .venv
 .venv\Scripts\activate          # Windows  (macOS/Linux: source .venv/bin/activate)
 pip install -r requirements.txt # installs deps + the movielens package (-e .)
-python scripts/prepare_samples.py
+python scripts/download_data.py # download + unzip + build samples
 jupyter lab notebooks/movielens_pipeline.ipynb
 ```
 
@@ -54,11 +54,26 @@ jupyter lab notebooks/movielens_pipeline.ipynb
 
 ## Getting the real data
 
+**Dataset:** MovieLens 32M — <https://grouplens.org/datasets/movielens/32m/>
+(32M ratings · ~200K users · ~84K movies · ~240 MB zipped).
+
+**Easiest — let the script do it (cross-platform, no curl/wget needed):**
+
+```bash
+uv run python scripts/download_data.py            # download + unzip + build samples
+uv run python scripts/download_data.py --force    # re-download from scratch
+uv run python scripts/download_data.py --skip-samples   # just fetch the data
+```
+
+**Manual alternative:**
+
 1. Download `ml-32m.zip` from <https://grouplens.org/datasets/movielens/32m/>.
-2. Unzip it into `data/raw/` so the files live at `data/raw/ml-32m/ratings.csv`, etc.
+2. Unzip into `data/raw/` so files live at `data/raw/ml-32m/ratings.csv`, etc.
+3. Run `uv run python scripts/prepare_samples.py` to build the sample sets.
 
 The raw data and generated samples are **git-ignored** (too big to commit) —
-each teammate regenerates them locally.
+each teammate regenerates them locally. The dataset is © GroupLens and subject to
+[its own terms of use](https://grouplens.org/datasets/movielens/).
 
 ---
 
@@ -132,7 +147,7 @@ deterministic synthetic datasets, so they're fast and reproducible.
 .
 ├── src/movielens/        the library
 ├── notebooks/            movielens_pipeline.ipynb  (the presentation)
-├── scripts/              prepare_samples.py, build_notebook.py
+├── scripts/              download_data.py, prepare_samples.py, build_notebook.py
 ├── tests/                pytest suite
 ├── data/                 raw/ + samples/  (git-ignored)
 ├── pyproject.toml        uv project + deps
