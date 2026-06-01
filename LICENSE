@@ -1,0 +1,32 @@
+Copyright (c) 2026 ianktoo. All Rights Reserved.
+
+PROPRIETARY — ALL RIGHTS RESERVED
+
+This software and all associated source code, notebooks, and documentation
+(the "Work") were created as a school project and are the proprietary work of
+the copyright holder.
+
+The Work is published publicly for educational, evaluation, and portfolio
+viewing purposes ONLY. Viewing the source does not grant any license to use it.
+
+You MAY NOT, without the prior written permission of the copyright holder:
+  - use, run, or deploy the Work for any purpose;
+  - copy, reproduce, or republish the Work in whole or in part;
+  - modify, adapt, translate, or create derivative works from it;
+  - merge, distribute, sublicense, sell, or otherwise transfer it.
+
+No rights are granted by implication, estoppel, or otherwise. All rights not
+expressly granted are reserved by the copyright holder.
+
+DATASET NOTICE
+This project uses the MovieLens 32M dataset, which is NOT included in this
+repository and is distributed separately by GroupLens (University of Minnesota)
+under its own terms of use. Any use of that dataset is governed solely by the
+GroupLens license, not by this LICENSE. See:
+https://grouplens.org/datasets/movielens/
+
+THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDER
+BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM, OUT OF, OR IN
+CONNECTION WITH THE WORK OR ITS USE.

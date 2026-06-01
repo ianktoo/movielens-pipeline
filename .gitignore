@@ -1,0 +1,23 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Data — too big to commit. Teammates regenerate it (see README):
+#   download ml-32m.zip into data/raw/, then `uv run python scripts/prepare_samples.py`
+data/raw/
+data/samples/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Test / tooling caches
+.pytest_cache/
+.coverage
+htmlcov/
